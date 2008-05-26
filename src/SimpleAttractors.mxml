@@ -5,7 +5,7 @@
 	applicationComplete="init()" 
 	width="800" 
 	height="600" 
-	layout="absolute"
+	layout="absolute" 
 	color="#444444"
 	backgroundGradientAlphas="[1.0, 1.0]"
 	backgroundGradientColors="[#858585, #3B3B3B]">
