@@ -24,7 +24,7 @@ package com.subblue
 		private var oh:int;						// Original height
 		private var ox:int;						// x-origin
 		private var oy:int;						// y-origin
-		private var scale:Number;				// Scaling factor
+		private var scale:Array;				// Scaling factor
 		private var p:Array = [Math.random(),Math.random()];
 		private var bmpd:BitmapData;
 		private var baseColor:uint;
@@ -67,7 +67,7 @@ package com.subblue
 		
 		public function params():String
 		{
-			return String(useAttractor + "_" + a + "," + b + "," + c + "," + d);
+			return String(useAttractor + " a" + a + " b" + b + " c" + c + " d" + d + " s" + resolution);
 		}
 		
 		private function setResolution():void
@@ -106,8 +106,8 @@ package com.subblue
 
 			p[0] = Math.sin(a * y) - Math.cos(b * x);
 			p[1] = Math.sin(c * x) - Math.cos(d * y);
-			xn = ox + (p[0] * scale);
-			yn = oy + (p[1] * scale);
+			xn = ox + (p[0] * scale[0]);
+			yn = oy + (p[1] * scale[1]);
 			
 			bmpd.setPixel32(xn, yn, setColor(bmpd.getPixel32(xn, yn)));
 			
@@ -124,8 +124,8 @@ package com.subblue
 
 			p[0] = Math.sin(a * y) + c * Math.cos(a * x);
 			p[1] = Math.sin(b * x) + d * Math.cos(b * y);
-			xn = ox + (p[0] * scale);
-			yn = oy + (p[1] * scale);
+			xn = ox + (p[0] * scale[0]);
+			yn = oy + (p[1] * scale[1]);
 			
 			bmpd.setPixel32(xn, yn, setColor(bmpd.getPixel32(xn, yn)));
 			
@@ -140,12 +140,13 @@ package com.subblue
 			return (newAlpha << 24) | color;
 		}
 		
-		private function setScale():Number
+		private function setScale():Array
 		{
 			if (useAttractor == 0) {
-				return 100 * resolution;
+				return [100 * resolution, 100 * resolution];
 			} else {
-				return (125 / Math.max(Math.abs(a), Math.abs(b), Math.abs(c), Math.abs(d))) * resolution;
+				//return (1 / Math.max(Math.abs(c), Math.abs(d))) * resolution * 150;
+				return [(1 / Math.abs(c)) * resolution * 150, (1 / Math.abs(d)) * resolution * 150];
 			}
 			
 		}

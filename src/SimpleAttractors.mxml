@@ -55,7 +55,14 @@
 			private function valueChange():void
 			{
 				if (Number(aValue.value) && Number(bValue.value) && Number(cValue.value) && Number(dValue.value) && Number(sampleValue.value)) {
-					if (renderImage.a != Number(aValue.value) || renderImage.b != Number(bValue.value) || renderImage.c != Number(cValue.value) || renderImage.d != Number(dValue.value) || renderImage.useAttractor != tabPanel.selectedIndex) {
+					if (renderImage.a != Number(aValue.value) || 
+						renderImage.b != Number(bValue.value) || 
+						renderImage.c != Number(cValue.value) || 
+						renderImage.d != Number(dValue.value) || 
+						renderImage.useAttractor != tabPanel.selectedIndex || 
+						renderImage.resolution != Number(sampleValue.value) ||
+						renderImage.color != uint(colorValue.value)) {
+						
 						renderImage.a = Number(aValue.value);
 						renderImage.b = Number(bValue.value);
 						renderImage.c = Number(cValue.value);
@@ -124,8 +131,8 @@
 		<mx:Label x="83.5" y="213" text="Samples:" width="61"/>
 		<mx:ColorPicker x="148" y="241" id="colorValue" selectedColor="#000000" enabled="true" change="valueChange()"/>
 		<mx:Label x="96" y="244" text="Colour:" width="46"/>
-		<mx:TabNavigator width="214" height="137" borderStyle="none" top="10" left="10" id="tabPanel" selectedIndex="0" change="valueChange()">
-			<mx:Canvas label="Peter de Jong" width="100%" height="100%" borderStyle="none">
+		<mx:TabNavigator height="137" borderStyle="none" top="10" left="10" id="tabPanel" selectedIndex="0" change="valueChange()" right="10">
+			<mx:Canvas label="Peter de Jong " width="100%" height="100%" borderStyle="none" themeColor="#FFFFFF">
 				<mx:TextArea x="0" y="1" width="214" height="94" borderStyle="none">
 					<mx:text><![CDATA[A simple equation that generates  complex behaviour.
 
@@ -133,7 +140,7 @@ x' = sin(a * y) - cos(b * x)
 y' = sin(c * x) - cos(d * y)]]></mx:text>
 				</mx:TextArea>
 			</mx:Canvas>
-			<mx:Canvas label="Clifford" width="100%" height="100%">
+			<mx:Canvas label="Clifford" width="100%" height="100%" themeColor="#FFFFFF">
 				<mx:TextArea x="0" y="1" width="214" height="94" borderStyle="none">
 					<mx:text><![CDATA[Similar to Peter de Jong, but credited to Cliff Pickover.
 
