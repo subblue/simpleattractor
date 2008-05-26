@@ -5,8 +5,10 @@
 	applicationComplete="init()" 
 	width="800" 
 	height="600" 
-	layout="absolute" 
-	viewSourceURL="srcview/index.html" color="#444444" backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#858585, #3B3B3B]">
+	layout="absolute"
+	color="#444444"
+	backgroundGradientAlphas="[1.0, 1.0]"
+	backgroundGradientColors="[#858585, #3B3B3B]">
 	
 	<mx:Script>
 		<![CDATA[
@@ -147,7 +149,8 @@ y' = sin(b * x) + d * cos(b * y)]]></mx:text>
 	<mx:Panel layout="absolute" id="demoPanel" left="272" top="10" right="10" bottom="30" fontStyle="italic" fontFamily="Verdana" color="#1586DE" fontWeight="normal" cornerRadius="4" fontSize="10" textAlign="right" headerHeight="0" borderStyle="solid" roundedBottomCorners="true">
 		<custom:AttratorImage id="renderImage" left="0" top="8" bottom="0" right="0"/>
 	</mx:Panel>
-	<mx:LinkButton label="Created by subblue" textAlign="right" right="10" bottom="3" width="129" color="#01AEFE" id="creditLink" click="goToURL('http://www.subblue.com')"/>
+	<mx:LinkButton label="Created by subblue" textAlign="right" right="10" bottom="3" width="128" color="#01AEFE" id="creditLink" click="goToURL('http://www.subblue.com')" themeColor="#000000" cornerRadius="3" rollOverColor="#000000" textRollOverColor="#FFFFFF"/>
+	<mx:LinkButton label="View source" textAlign="right" right="139" bottom="3" width="87" color="#CFCFCF" id="creditLink0" click="goToURL('http://github.com/subblue/simpleattractor')" fontWeight="normal" themeColor="#000000" cornerRadius="3" rollOverColor="#000000" textRollOverColor="#FFFFFF"/>
 	
 	
 </mx:WindowedApplication>
